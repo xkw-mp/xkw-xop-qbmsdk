@@ -9,7 +9,7 @@ package com.xkw.xop.qbmsdk;
  *
  * @author Luozl
  * @version 1.0
- * @date 2022年05月25日
+ * date 2022年05月25日
  */
 public class Setting {
 }

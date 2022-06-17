@@ -29,7 +29,7 @@ import java.util.stream.Collectors;
  *
  * @author Luozl
  * @version 1.0
- * @date 2022年05月26日
+ * date 2022年05月26日
  */
 public class QuestionParserService {
     /**

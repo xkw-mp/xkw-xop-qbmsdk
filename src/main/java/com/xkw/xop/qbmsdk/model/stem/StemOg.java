@@ -11,7 +11,7 @@ import java.util.List;
  *
  * @author Luozl
  * @version 1.0
- * @date 2022年05月24日
+ * date 2022年05月24日
  */
 public class StemOg {
     /**

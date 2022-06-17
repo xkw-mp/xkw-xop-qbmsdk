@@ -9,7 +9,7 @@ package com.xkw.xop.qbmsdk.model.explanation;
  *
  * @author Luozl
  * @version 1.0
- * @date 2022年05月24日
+ * date 2022年05月24日
  */
 public class ExplanationSeg {
     private String name;
