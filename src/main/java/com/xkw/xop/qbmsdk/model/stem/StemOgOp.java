@@ -8,8 +8,6 @@ package com.xkw.xop.qbmsdk.model.stem;
  * 选项
  *
  * @author Luozl
- * @version 1.0
- * date 2022年05月24日
  */
 public class StemOgOp {
     /**

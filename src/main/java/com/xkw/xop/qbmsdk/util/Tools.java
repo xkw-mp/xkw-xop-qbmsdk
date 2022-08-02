@@ -15,8 +15,6 @@ import java.util.Collection;
  * 一些基础的公共服务
  *
  * @author Luozl
- * @version 1.0
- * date 2022年05月24日
  */
 public class Tools {
     public static boolean collectionIsEmpty( Collection<?> collection) {

@@ -10,8 +10,6 @@ import java.util.List;
  * 题目(或者小题)
  *
  * @author Luozl
- * @version 1.0
- * date 2022年05月24日
  */
 public class Stem {
     /**

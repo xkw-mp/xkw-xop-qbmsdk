@@ -28,8 +28,6 @@ import java.util.stream.Collectors;
  * 将题库服务拆分出的html格式的题干答案解析拆分出其中的内部结构
  *
  * @author Luozl
- * @version 1.0
- * date 2022年05月26日
  */
 public class QuestionParserService {
     /**
@@ -114,6 +112,7 @@ public class QuestionParserService {
         if (document == null) {
             return null;
         }
+        document.outputSettings(new Document.OutputSettings().prettyPrint(false));
         Element stemElement = document.select(String.format("%s.%s", DIV, QML_STEM)).first();
         return splitStem(stemElement);
     }
@@ -167,6 +166,7 @@ public class QuestionParserService {
         if (document == null) {
             return null;
         }
+        document.outputSettings(new Document.OutputSettings().prettyPrint(false));
         Answer retAnswer = new Answer();
         Element answerElement = document.select(String.format(".%s", QML_ANSWER)).first();
         if (answerElement == null) {
@@ -198,6 +198,7 @@ public class QuestionParserService {
         if (document == null) {
             return null;
         }
+        document.outputSettings(new Document.OutputSettings().prettyPrint(false));
         Explanation retExplanation = new Explanation();
         Element explanationElement = document.select(String.format(".%s", QML_EXPLANATION)).first();
         if (explanationElement == null) {

@@ -2,7 +2,7 @@
 
 ***
 
-学科网开放平台提供了Java版本的题库SDK，本文档主要针对Java开发者，对于题库能力提供一些辅助的服务。gitHub地址：[__https://github.com/xkw-mp/xkw-xop-qbmsdk__](https://github.com/xkw-mp/xkw-xop-qbmsdk)
+学科网开放平台提供了Java版本的题库SDK，本文档主要针对Java开发者，对于题库能力提供一些辅助的服务。gitHub地址：[https://github.com/xkw-mp/xkw-xop-qbmsdk](https://github.com/xkw-mp/xkw-xop-qbmsdk)
 
 ### 接口能力
 
@@ -16,8 +16,6 @@
 注：切分之后都是html格式的数据
 
 # 快速入门
-
-***
 
 ## 安装 Java SDK
 
@@ -53,11 +51,9 @@ com.xkw.xop.qbmsdk
 
 pom中添加依赖，推荐使用最新版本
 
-添加以下依赖即可
-
 ```xml
 <dependency>
-    <groupId>com.xkw.xop.qbmsdk</groupId>
+    <groupId>com.xkw.xop</groupId>
     <artifactId>xkw-xop-qbmsdk</artifactId>
     <version>1.0.0</version>
 </dependency>
@@ -65,15 +61,12 @@ pom中添加依赖，推荐使用最新版本
 
 ### **直接使用JAR包**
 
-1. 在Maven中仓库下载xkw-xop-qbmsdk压缩工具包
+1). 在Maven仓库中下载xkw-xop-qbmsdk压缩工具包：[Maven Central Repository Search](https://search.maven.org/search?q=a:xkw-xop-qbmsdk)；
 
-​		[Maven Central Repository Search](https://search.maven.org/search)
+2). 将下载的xkw-xop-qbmsdk.zip解压后，复制到工程文件夹中;
 
-2. 将下载的xkw-xop-qbmsdk.zip解压后，复制到工程文件夹中。
-
-3. 添加SDK工具包xkw-xop-qbmsdk.jar，jsoup-1.13.1.jar([__https://jsoup.org/__](https://jsoup.org/))
-
-添加完成后，用户就可以在工程中使用xopqbm Java SDK。
+3). 添加SDK工具包xkw-xop-qbmsdk.jar，jsoup-1.13.1.jar([https://jsoup.org/](https://jsoup.org/))
+其中，version为版本号(参见 [__版本更新记录__](https://search.maven.org/search?q=a:xkw-xop-qbmsdk))，添加完成后，用户就可以在工程中使用xopqbm Java SDK。
 
 ## 接口使用
 
@@ -95,7 +88,6 @@ System.out.println(stem.toString());
 
 # 接口能力说明
 
-***
 
 ## 题干拆分
 
@@ -216,13 +208,11 @@ System.out.println(question.toString());
 
 # 错误信息
 
-
 ### 会出现错误的情况
 
 1. 使用的不是xopqbm返回的html数据
+
 1. 需要传递的是试题的题干html，但是传递了答案或者解析的html
+
 1. 对xopqbm返回的html数据做了其他处理，破坏了原有的结构，再调用接口有可能报错
 
-
-***
-如需更多帮助，可到学科网开放平台的门户查看[__相关文档__](https://open.xkw.com/%E5%B9%B3%E5%8F%B0%E7%AE%80%E4%BB%8B-mdtag9bc76-omd)

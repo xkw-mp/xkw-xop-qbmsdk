@@ -20,8 +20,6 @@ import com.xkw.xop.qbmsdk.service.QuestionParserService;
  * 4、试题拆分 ：合并题干答案解析拆分功能，对于输入的题干答案解析进行统一拆分，输出一道试题的拆分结果
  *
  * @author Luozl
- * @version 1.0
- * date 2022年05月24日
  */
 public class QuestionParser {
     private QuestionParserService parserService = null;

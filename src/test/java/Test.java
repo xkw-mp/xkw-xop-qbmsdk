@@ -14,8 +14,6 @@ import com.xkw.xop.qbmsdk.model.stem.Stem;
  * sdk使用测试用例
  *
  * @author Luozl
- * @version 1.0
- * date 2022年05月30日
  */
 public class Test {
 

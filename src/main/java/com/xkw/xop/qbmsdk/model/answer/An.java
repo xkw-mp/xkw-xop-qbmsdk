@@ -8,8 +8,6 @@ package com.xkw.xop.qbmsdk.model.answer;
  * 答题空
  *
  * @author Luozl
- * @version 1.0
- * date 2022年05月24日
  */
 public class An {
     /**
@@ -19,26 +17,26 @@ public class An {
     /**
      * 是否是选择题
      */
-    private Boolean isOp = false;
+    private Boolean op = false;
     /**
      * 是否支持机阅
      */
-    private Boolean isExact = false;
+    private Boolean exact = false;
 
     public Boolean getOp() {
-        return isOp;
+        return op;
     }
 
     public void setOp(Boolean op) {
-        isOp = op;
+        this.op = op;
     }
 
     public Boolean getExact() {
-        return isExact;
+        return exact;
     }
 
     public void setExact(Boolean exact) {
-        isExact = exact;
+        this.exact = exact;
     }
 
     public String getHtml() {
@@ -53,8 +51,8 @@ public class An {
     public String toString() {
         return "An{" +
                 "html='" + (html == null ? null : html.replaceAll("'", "\\\\'")) + '\'' +
-                ", isOp=" + isOp +
-                ", isExact=" + isExact +
+                ", op=" + op +
+                ", exact=" + exact +
                 '}';
     }
 }
