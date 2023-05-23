@@ -108,21 +108,25 @@ System.out.println(stem.toString());
 返回数据：Stem
 
 | 字段     | 参数说明                                           | 类型            | 是否必须 |
-| -------- | -------------------------------------------------- | --------------- | -------- |
-| html     | 题干                                               | String          | 是       |
-| type     | 试题结构类型：选择题，填空题，复合题               | String          |          |
-| og       | 选项                                               | StemOg          | 否       |
-| +cols    | 每行显示选项个数                                   | Inetger         |          |
-| +ogOps   | 选项组(有序数组，例如有4个选项，那么选项为ABCD)    | Array(StemOgOp) | 是       |
-| ++html   | 选项的html数据                                     | String          | 是       |
-| sqs      | 小题(小问)：小题或者小问下面不允许再有小题或者小问 | Array(Stem)     | 否       |
-| +type    | 类型                                               | String          | 是       |
-| +html    | 选项的html数据                                     | String          | 是       |
-| +og      | 小题(小问)选项组                                   | StemOg          | 否       |
-| ++cols   | 每行显示选项个数                                   | Inetger         |          |
-| ++ogOps  | 选项组(有序数组)                                   | Array(StemOgOp) | 是       |
-| +++html  | 选项的html数据                                     | String          | 是       |
-| +++index | 选项序号(A,B,C,D等)                                | String          | 是       |
+| -------- | -------------------------------------------------- | --------------- |------|
+| html     | 题干                                               | String          | 是    |
+| type     | 试题结构类型：选择题，填空题，复合题               | String          |      |
+| sqIdMode      | 0=小题，1=小问                   | Inetger     | 是    |
+| sqBlankCount  | 题干中小题空的个数                   | Inetger     | 是    |
+| og       | 选项                                               | StemOg          | 否    |
+| +cols    | 每行显示选项个数                                   | Inetger         |      |
+| +ogOps   | 选项组(有序数组，例如有4个选项，那么选项为ABCD)    | Array(StemOgOp) | 是    |
+| ++html   | 选项的html数据                                     | String          | 是    |
+| sqs      | 小题(小问)：小题或者小问下面不允许再有小题或者小问 | Array(Stem)     | 否    |
+| +type    | 类型                                               | String          | 是    |
+| +sqIdMode     | 0=小题，1=小问                   | Inetger     | 是    |
+| +sqBlankCount | 题干中小题空的个数                   | Inetger     | 是    |
+| +html    | 选项的html数据                                     | String          | 是    |
+| +og      | 小题(小问)选项组                                   | StemOg          | 否    |
+| ++cols   | 每行显示选项个数                                   | Inetger         |      |
+| ++ogOps  | 选项组(有序数组)                                   | Array(StemOgOp) | 是    |
+| +++html  | 选项的html数据                                     | String          | 是    |
+| +++index | 选项序号(A,B,C,D等)                                | String          | 是    |
 
 ## 答案拆分
 

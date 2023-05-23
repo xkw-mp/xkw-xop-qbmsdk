@@ -28,6 +28,30 @@ public class Stem {
      * 选项组
      */
     private StemOg og;
+    /**
+     * 0=小题，1=小问
+     */
+    private  int sqIdMode;
+    /**
+     * 题干中小题空的个数。
+     */
+    private int sqBlankCount;
+
+    public int getSqIdMode() {
+        return sqIdMode;
+    }
+
+    public void setSqIdMode(int sqIdMode) {
+        this.sqIdMode = sqIdMode;
+    }
+
+    public int getSqBlankCount() {
+        return sqBlankCount;
+    }
+
+    public void setSqBlankCount(int sqBlankCount) {
+        this.sqBlankCount = sqBlankCount;
+    }
 
     public String getHtml() {
         return html;
@@ -68,6 +92,8 @@ public class Stem {
                 ", type='" + type + '\'' +
                 ", sqs=" + sqs +
                 ", og=" + og +
+                ", sqIdMode=" + sqIdMode +
+                ", sqBlankCount=" + sqBlankCount +
                 '}';
     }
 }

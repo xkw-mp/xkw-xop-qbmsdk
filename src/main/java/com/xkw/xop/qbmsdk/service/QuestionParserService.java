@@ -35,6 +35,7 @@ public class QuestionParserService {
      */
     private static final String P = "p";
     private static final String DIV = "div";
+    private static final String SQ = "sq";
     /**
      * 题干
      */
@@ -43,6 +44,18 @@ public class QuestionParserService {
      * 小题
      */
     private static final String QML_SQ = "qml-sq";
+    /**
+     * 答题空
+     */
+    private static final String QML_BK = "qml-bk";
+    /**
+     * 小问
+     */
+    public static final String QML_ID_CONTAINER = "id-container";
+    /**
+     * 小问属性
+     */
+    public static final String QML_ID_CONTAINER_VAL = "question";
     /**
      * 选项组
      */
@@ -129,6 +142,14 @@ public class QuestionParserService {
                 && !i.is("." + QML_OG) && !i.is("." + QML_QUES_NO)).collect(Collectors.toList());
         retStem.setHtml(stemHtmls.size() > 0 ? stemHtmls.stream().map(Node::outerHtml).collect(Collectors.joining()) : null);
         retStem.setType(getQuestionType(retStem));
+        //中小题空的个数
+        retStem.setSqBlankCount((int) stemElement.getElementsByAttribute(SQ).stream().filter(i -> i.is("." + QML_BK)).count());
+        //0=小题，1=小问
+        retStem.setSqIdMode(stemElement.getElementsByAttributeValue(QML_ID_CONTAINER, QML_ID_CONTAINER_VAL).size() > 0 ? 1 : 0);
+        //修复下小题中的字段
+        if (retStem.getSqs() != null && retStem.getSqs().size() > 0) {
+            retStem.getSqs().forEach(i -> i.setSqIdMode(retStem.getSqIdMode()));
+        }
         return retStem;
     }
 
