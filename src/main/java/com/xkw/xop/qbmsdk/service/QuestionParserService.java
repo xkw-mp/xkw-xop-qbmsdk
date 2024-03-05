@@ -198,9 +198,10 @@ public class QuestionParserService {
             AnSq sq = new AnSq();
             sq.setAns(i.select(String.format(".%s", QML_AN)).stream().map(j -> {
                 An an = new An();
-                an.setHtml(j.outerHtml());
                 an.setOp(j.is(String.format(".%s", QML_ISOP)));
-                an.setExact(j.is(String.format(".%s", QML_EXACT)));
+                an.setExact(j.is(String.format(".%s", QML_EXACT)) || an.getOp());
+                //是客观题答案时html中直接显示答案，不用其他元素包裹了
+                an.setHtml(an.getOp() ? j.html() : j.outerHtml());
                 return an;
             }).collect(Collectors.toList()));
             return sq;

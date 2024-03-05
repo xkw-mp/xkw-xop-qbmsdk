@@ -27,6 +27,7 @@ public class WholeTests {
         Setting setting = new Setting();
         QuestionParser parser = new QuestionParser(setting);
         testAnswer(parser);
+        testOpAnswer(parser);
         testStem(parser);
         testExplanation(parser);
         testQuestion(parser);
@@ -56,6 +57,16 @@ public class WholeTests {
     }
     private static void testAnswer(QuestionParser parser) {
         String strAnswer = "<div class=\"qml-answer\"><span class=\"qml-an-sq\">&nbsp;&nbsp;&nbsp;&nbsp;①. <span class=\"qml-an  \"><span style=\"font-family: 宋体;\">平平安安</span></span>&nbsp;&nbsp;&nbsp;&nbsp;②. <span class=\"qml-an  \"><span style=\"font-family: 宋体;\">认认真真</span></span>&nbsp;&nbsp;&nbsp;&nbsp;③. <span class=\"qml-an  \"><span style=\"font-family: 宋体;\">仔仔细细</span></span>&nbsp;&nbsp;&nbsp;&nbsp;④. <span class=\"qml-an  qml-exact\"><span style=\"font-family: 宋体;\">③</span></span>&nbsp;&nbsp;&nbsp;&nbsp;⑤. <span class=\"qml-an  qml-exact\"><span style=\"font-family: 宋体;\">④</span></span>&nbsp;&nbsp;&nbsp;&nbsp;⑥. <span class=\"qml-an  qml-exact\"><span style=\"font-family: 宋体;\">①</span></span>&nbsp;&nbsp;&nbsp;&nbsp;⑦. <span class=\"qml-an  qml-exact\"><span style=\"font-family: 宋体;\">⑥</span></span>&nbsp;&nbsp;&nbsp;&nbsp;⑧. <span class=\"qml-an  qml-exact\"><span style=\"font-family: 宋体;\">⑤</span></span>&nbsp;&nbsp;&nbsp;&nbsp;⑨. <span class=\"qml-an  qml-exact\"><span style=\"font-family: 宋体;\">②</span></span>&nbsp;&nbsp;&nbsp;&nbsp;⑩. <span class=\"qml-an  qml-exact\"><span style=\"font-family: 宋体;\">②</span></span>&nbsp;&nbsp;&nbsp;&nbsp;⑪. <span class=\"qml-an  qml-exact\"><span style=\"font-family: 宋体;\">①</span></span>&nbsp;&nbsp;&nbsp;&nbsp;⑫. <span class=\"qml-an  qml-exact\"><span style=\"font-family: 宋体;\">④</span></span>&nbsp;&nbsp;&nbsp;&nbsp;⑬. <span class=\"qml-an  qml-exact\"><span style=\"font-family: 宋体;\">③</span></span></span></div>";
+        Answer answer = parser.splitAnswer(strAnswer);
+        System.out.println(answer.toString());
+    }
+
+    /**
+     * 客观题选项测试
+     * @param parser
+     */
+    private static void testOpAnswer(QuestionParser parser) {
+        String strAnswer="<div class=\"qml-answer\" data-copyright=\"xkw.com-1709102126-0-4WAnFLsgg1Qzo7T5aoX06jvfyKLY7NOdZ3PQbScnfLgvpFOVGaNsoKq68t6cwdY1\"><span class=\"qml-an-sq\"><span class=\"qml-an qml-isop \">B</span></span></div>";
         Answer answer = parser.splitAnswer(strAnswer);
         System.out.println(answer.toString());
     }

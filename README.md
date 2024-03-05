@@ -2,7 +2,7 @@
 
 ***
 
-学科网开放平台提供了Java版本的题库SDK，本文档主要针对Java开发者，对于题库能力提供一些辅助的服务。gitHub地址：[https://github.com/xkw-mp/xkw-xop-qbmsdk](https://github.com/xkw-mp/xkw-xop-qbmsdk)
+学科网开放平台提供了Java版本的题库SDK，本文档主要针对Java开发者，对于题库能力提供一些辅助的服务。GitHub地址：[https://github.com/xkw-mp/xkw-xop-qbmsdk](https://github.com/xkw-mp/xkw-xop-qbmsdk)
 
 ### 接口能力
 
@@ -13,7 +13,7 @@
 | 解析拆分 | 将HTML格式的解析拆分为：小题解析、分析、点睛等自定义片段     |
 | 试题拆分 | 合并题干答案解析拆分功能，对于输入的题干答案解析进行统一拆分，输出一道试题的拆分结果 |
 
-注：切分之后都是html格式的数据
+注：切分之后都是HTML格式的数据
 
 # 快速入门
 
@@ -45,9 +45,9 @@ com.xkw.xop.qbmsdk
     └── Tools.java
 ```
 
-**支持 JAVA版本：1.8+**
+**安装方式有以下两种，支持 JAVA版本：1.8+**
 
-### **使用maven依赖**
+### **1、使用maven依赖**
 
 pom中添加依赖，推荐使用最新版本
 
@@ -55,18 +55,18 @@ pom中添加依赖，推荐使用最新版本
 <dependency>
     <groupId>com.xkw.xop</groupId>
     <artifactId>xkw-xop-qbmsdk</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.5</version>
 </dependency>
 ```
 
-### **直接使用JAR包**
+### **2、直接使用JAR包**
 
 1). 在Maven仓库中下载xkw-xop-qbmsdk压缩工具包：[Maven Central Repository Search](https://search.maven.org/search?q=a:xkw-xop-qbmsdk)；
 
 2). 将下载的xkw-xop-qbmsdk.zip解压后，复制到工程文件夹中;
 
 3). 添加SDK工具包xkw-xop-qbmsdk.jar，jsoup-1.13.1.jar([https://jsoup.org/](https://jsoup.org/))
-其中，version为版本号(参见 [__版本更新记录__](https://search.maven.org/search?q=a:xkw-xop-qbmsdk))，添加完成后，用户就可以在工程中使用xopqbm Java SDK。
+其中，version为版本号(参见 [__版本更新记录__](https://search.maven.org/search?q=a:xkw-xop-qbmsdk))，添加完成后，用户就可以在工程中使用学科网开放平台 Java SDK。
 
 ## 接口使用
 
@@ -101,32 +101,32 @@ System.out.println(stem.toString());
 
 参数：
 
-| 参数名称 | 参数说明   | 数据类型 | 是否必须 |
-| -------- | ---------- | -------- | -------- |
-| stem     | html的题干 | String   | 是       |
+| 参数名称 | 参数说明      | 数据类型 | 是否必须 |
+| -------- |-----------| -------- | -------- |
+| stem     | HTML格式的题干 | String   | 是       |
 
 返回数据：Stem
 
-| 字段     | 参数说明                                           | 类型            | 是否必须 |
-| -------- | -------------------------------------------------- | --------------- |------|
-| html     | 题干                                               | String          | 是    |
-| type     | 试题结构类型：选择题，填空题，复合题               | String          |      |
+| 字段     | 参数说明                        | 类型            | 是否必须 |
+| -------- |-----------------------------| --------------- |------|
+| html     | 题干                          | String          | 是    |
+| type     | 试题结构类型：选择题，填空题，复合题          | String          |      |
 | sqIdMode      | 0=小题，1=小问                   | Inetger     | 是    |
 | sqBlankCount  | 题干中小题空的个数                   | Inetger     | 是    |
-| og       | 选项                                               | StemOg          | 否    |
-| +cols    | 每行显示选项个数                                   | Inetger         |      |
-| +ogOps   | 选项组(有序数组，例如有4个选项，那么选项为ABCD)    | Array(StemOgOp) | 是    |
-| ++html   | 选项的html数据                                     | String          | 是    |
-| sqs      | 小题(小问)：小题或者小问下面不允许再有小题或者小问 | Array(Stem)     | 否    |
-| +type    | 类型                                               | String          | 是    |
+| og       | 选项                          | StemOg          | 否    |
+| +cols    | 每行显示选项个数                    | Inetger         |      |
+| +ogOps   | 选项组(有序数组，例如有4个选项，那么选项为ABCD) | Array(StemOgOp) | 是    |
+| ++html   | 选项的HTML数据                   | String          | 是    |
+| sqs      | 小题(小问)：小题或者小问下面不允许再有小题或者小问  | Array(Stem)     | 否    |
+| +type    | 类型                          | String          | 是    |
 | +sqIdMode     | 0=小题，1=小问                   | Inetger     | 是    |
 | +sqBlankCount | 题干中小题空的个数                   | Inetger     | 是    |
-| +html    | 选项的html数据                                     | String          | 是    |
-| +og      | 小题(小问)选项组                                   | StemOg          | 否    |
-| ++cols   | 每行显示选项个数                                   | Inetger         |      |
-| ++ogOps  | 选项组(有序数组)                                   | Array(StemOgOp) | 是    |
-| +++html  | 选项的html数据                                     | String          | 是    |
-| +++index | 选项序号(A,B,C,D等)                                | String          | 是    |
+| +html    | 选项的HTML数据                   | String          | 是    |
+| +og      | 小题(小问)选项组                   | StemOg          | 否    |
+| ++cols   | 每行显示选项个数                    | Inetger         |      |
+| ++ogOps  | 选项组(有序数组)                   | Array(StemOgOp) | 是    |
+| +++html  | 选项的HTML数据                   | String          | 是    |
+| +++index | 选项序号(A,B,C,D等)              | String          | 是    |
 
 ## 答案拆分
 
@@ -142,19 +142,19 @@ System.out.println(answer.toString());
 
 参数
 
-| 参数名称 | 参数说明   | 数据类型 | 是否必须 |
-| -------- | ---------- | -------- | -------- |
-| answer   | html的答案 | String   | 是       |
+| 参数名称 | 参数说明      | 数据类型 | 是否必须 |
+| -------- |-----------| -------- | -------- |
+| answer   | HTML格式的答案 | String   | 是       |
 
 返回数据：Answer
 
-| 字段    | 参数说明                               | 类型        | 是否必须 |
-| ------- | -------------------------------------- | ----------- | -------- |
-| anSqs   | 答案组(有序数组)                       | Array(AnSq) | 是       |
-| +ans    | 小题(小问)答案(有序数组)               | Array(An)   | 是       |
-| ++html  | 答案html(如果是选择题，答案为选项序号) | String      | 是       |
-| ++op    | 是否选择题                             | Boolean     | 是       |
-| ++exact | 是否支持机阅                           | Boolean     | 是       |
+| 字段    | 参数说明                   | 类型        | 是否必须 |
+| ------- |------------------------| ----------- | -------- |
+| anSqs   | 答案组(有序数组)              | Array(AnSq) | 是       |
+| +ans    | 小题(小问)答案(有序数组)         | Array(An)   | 是       |
+| ++html  | 答案HTML(如果是选择题，则答案为选项序号) | String      | 是       |
+| ++op    | 是否选择题                  | Boolean     | 是       |
+| ++exact | 是否支持机阅                 | Boolean     | 是       |
 
 ## 解析拆分
 
@@ -168,17 +168,17 @@ System.out.println(explanation.toString());
 
 参数：
 
-| 参数名称    | 参数说明   | 数据类型 | 是否必须 |
-| ----------- | ---------- | -------- | -------- |
-| explanation | html的解析 | String   | 是       |
+| 参数名称    | 参数说明    | 数据类型 | 是否必须 |
+| ----------- |---------| -------- | -------- |
+| explanation | HTML的解析 | String   | 是       |
 
 返回数据：Explanation
 
-| 字段            | 参数说明                                                     | 类型                  | 是否必须 |
-| --------------- | ------------------------------------------------------------ | --------------------- | -------- |
+| 字段            | 参数说明                                 | 类型                  | 是否必须 |
+| --------------- |--------------------------------------| --------------------- | -------- |
 | explanationSegs | 解析的细分段落名称：分析，详解，点睛，小题1(2)详解，或者自定义的名称 | Array(ExplanationSeg) | 否       |
-| +name           | 细分段落名称：分析，详解，点睛，小题1(2)详解，或者自定义的名称 | String                | 是       |
-| +html           | 内容Html                                                     | String                | 否       |
+| +name           | 细分段落名称：分析，详解，点睛，小题1(2)详解，或者自定义的名称    | String                | 是       |
+| +html           | 内容HTML                               | String                | 否       |
 
 ## 试题拆分
 
@@ -194,11 +194,11 @@ System.out.println(question.toString());
 
 参数：
 
-| 参数名称    | 参数说明   | 数据类型 | 是否必须 |
-| ----------- | ---------- | -------- | -------- |
-| stem        | html的试题 | String   | 否       |
-| answer      | html的答案 | String   | 否       |
-| explanation | html的解析 | String   | 否       |
+| 参数名称    | 参数说明      | 数据类型 | 是否必须 |
+| ----------- |-----------| -------- | -------- |
+| stem        | HTML格式的试题 | String   | 否       |
+| answer      | HTML格式的答案 | String   | 否       |
+| explanation | HTML格式的解析 | String   | 否       |
 
 返回数据：Question
 
@@ -212,11 +212,7 @@ System.out.println(question.toString());
 
 # 错误信息
 
-### 会出现错误的情况
-
-1. 使用的不是xopqbm返回的html数据
-
-1. 需要传递的是试题的题干html，但是传递了答案或者解析的html
-
-1. 对xopqbm返回的html数据做了其他处理，破坏了原有的结构，再调用接口有可能报错
-
+### 说明：必须使用学科网开放平台返回的试题HTML数据
+### 常见错误：
+1. 传入的HTML数据并非学科网开放平台返回的HTML原始数据（二次加工会破会原有结构）；
+2. 未根据接口入参要求，正确传入题干、答案、解析的HTML数据。
